@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invertir Palabras en Paréntesis</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Invertir Palabras en Paréntesis</h2>
+    <label for="mensaje">Ingrese el mensaje que quieres enviar :</label>
+    <textarea id="mensaje" rows="4" cols="50"></textarea>
+    <br>
+    <button onclick="invertirPalabras()">Invertir</button>
+    <br>
+    <label for="resultado"> :</label>
+    <textarea id="resultado" rows="4" cols="50" readonly></textarea>
+</div>
+
+<script>
+function invertirPalabras() {
+    var mensaje = document.getElementById("mensaje").value;
+    var resultado = invertirPalabrasEnParentesis(mensaje);
+    document.getElementById("resultado").value = resultado;
+}
+
+function invertirPalabrasEnParentesis(mensaje) {
+    return mensaje.replace(/\(([^)]+)\)/g, function(match, palabra) {
+        return '(' + palabra.split('').reverse().join('') + ')';
+    });
+}
+</script>
+
+</body>
+</html>
